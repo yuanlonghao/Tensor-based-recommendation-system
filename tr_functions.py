@@ -2,7 +2,6 @@
 # coding: utf-8
 
 
-
 import numpy as np
 import scipy.linalg as la
 import timeit
@@ -70,6 +69,7 @@ def cores2tensor(tr_cores):
     tensor_approx = np.dot(temp1, temp2).reshape(tensor_size, order = 'F').copy()
     return tensor_approx
 
+# Different way to reconstruct the tensor
 def cores2tensor_new(tr_cores):
     dim = len(tr_cores)
     tensor_size = []
@@ -127,7 +127,7 @@ def mat2tensor(input_matrix, n, tensor_size, mat_type=1):
     return output_tensor
 
 
-# Y = X x_n U  ---> Y_(n) = U x X_(n)
+# Tensor matrix product Y = X x_n U  ---> Y_(n) = U x X_(n)
 def tensor_matrix_product(tensor, matrix, n):
     tensor_size = list(tensor.shape)
     dim = len(tensor_size)
